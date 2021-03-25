@@ -228,6 +228,12 @@ resource "aws_s3_bucket" "this" {
     }
   }
 
+  lifecycle {
+    create_before_destroy = var.lifecycle_create_before_destroy
+    prevent_destroy       = var.lifecycle_prevent_destroy
+    ignore_changes        = var.lifecycle_ignore_bucket_attributes
+  }
+
 }
 
 resource "aws_s3_bucket_policy" "this" {

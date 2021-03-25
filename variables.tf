@@ -106,6 +106,24 @@ variable "lifecycle_rule" {
   default     = []
 }
 
+variable "lifecycle_create_before_destroy" {
+  description = "A boolean to indicate whether the builtin Terraform lifecycle block `create_before_destroy` argument should be set, and to what value."
+  type        = bool
+  default     = null
+}
+
+variable "lifecycle_prevent_destroy" {
+  description = "A boolean to indicate whether the builtin Terraform lifecycle block `prevent_destroy` argument should be set, and to what value."
+  type        = bool
+  default     = null
+}
+
+variable "lifecycle_ignore_bucket_attributes" {
+  description = "A list of resource attributes to populate the builtin Terraform lifecycle block `ignore_changes` argument with."
+  type        = list(string)
+  default     = null
+}
+
 variable "replication_configuration" {
   description = "Map containing cross-region replication configuration."
   type        = any
